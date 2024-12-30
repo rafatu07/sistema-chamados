@@ -1,5 +1,4 @@
-import { useContext, useState, useEffect } from "react";
-import { AuthContext } from "../../contexts/auth";
+import {  useState, useEffect } from "react";
 
 import Header from "../../components/Header";
 import Title from "../../components/Title";
@@ -9,7 +8,7 @@ import { Link } from "react-router-dom";
 import { collection, getDocs, orderBy, limit, startAfter, query } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 
-import { format, set } from 'date-fns';
+import { format } from 'date-fns';
 import Modal from "../../components/Modal";
 
 import './dashboard.css';
@@ -18,7 +17,6 @@ const listRef = collection(db, "chamados");
 
 
 export default function Dashboard() {
-    const { logout } = useContext(AuthContext);
 
     const [chamados, setChamados] = useState([]);
     const [loading, setLoading] = useState(true);

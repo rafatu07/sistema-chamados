@@ -20,7 +20,6 @@ export default function Profile() {
     const [avatarUrl, setAvatarUrl] = useState(user && user.avatarUrl);
     const [imageAvatar, setImageAvatar] = useState(null);
     const [nome, setNome] = useState(user && user.name);
-    const [email, setEmail] = useState(user && user.email);
 
     function handleFile(e) {
         if (e.target.files[0]) {
@@ -42,7 +41,7 @@ export default function Profile() {
 
         const uploadRef = ref(storage, `images/${currentUid}/${imageAvatar.name}`);
 
-        const uploadTask = uploadBytes(uploadRef, imageAvatar)
+         uploadBytes(uploadRef, imageAvatar)
         .then((snashot) => {
             getDownloadURL(snashot.ref).then(async (downloadUrl) => {
                 let url = downloadUrl;
@@ -125,7 +124,7 @@ export default function Profile() {
                     <input type="text" value={nome} onChange={e => setNome(e.target.value)} />
 
                     <label>Email</label>
-                    <input type="text" value={email} disabled={true} />
+                    <input type="text"  disabled={true} />
 
                     <button type="submit">Salvar</button>
                         

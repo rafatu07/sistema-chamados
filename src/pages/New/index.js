@@ -9,7 +9,7 @@ import { AuthContext } from '../../contexts/auth'
 import { db  } from '../../services/firebaseConnection'
 import { collection, getDocs, getDoc, doc, addDoc, updateDoc } from 'firebase/firestore'
 import { toast } from 'react-toastify'
-import { set } from 'date-fns'
+
 
 const listRef = collection(db, "customers");
 
@@ -29,7 +29,7 @@ export default function New() {
 
     useEffect(() => {
         async function loadCustomersList() {
-            const querySnapshot = await getDocs(listRef)
+         await getDocs(listRef)
            .then((snapshot) => {
                let list = [];
 
