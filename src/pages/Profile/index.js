@@ -20,6 +20,7 @@ export default function Profile() {
     const [avatarUrl, setAvatarUrl] = useState(user && user.avatarUrl);
     const [imageAvatar, setImageAvatar] = useState(null);
     const [nome, setNome] = useState(user && user.name);
+    const [email, setEmail] = useState(user && user.email);
 
     function handleFile(e) {
         if (e.target.files[0]) {
@@ -124,7 +125,7 @@ export default function Profile() {
                     <input type="text" value={nome} onChange={e => setNome(e.target.value)} />
 
                     <label>Email</label>
-                    <input type="text"  disabled={true} />
+                    <input type="text" value={email}  disabled={true} />
 
                     <button type="submit">Salvar</button>
                         
